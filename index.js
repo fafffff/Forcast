@@ -1,15 +1,19 @@
 function weather(response) {
   //detail.innerHTML = response.data.temperature;
 
-  let info = Math.round(response.data.daily[0].temperature.day);
+  let info = Math.round(response.data.daily[now.getDay()].temperature.day);
   let detail = document.querySelector(".amount");
   detail.innerHTML = `${info}`;
   let selectDescribe = document.querySelector(".describe");
-  selectDescribe.innerHTML = `${response.data.daily[0].condition.description}`;
+  selectDescribe.innerHTML = `${
+    response.data.daily[now.getDay()].condition.description
+  }`;
   let selectHumidity = document.querySelector(".humidity");
-  selectHumidity.innerHTML = `${response.data.daily[0].temperature.humidity}`;
+  selectHumidity.innerHTML = `${
+    response.data.daily[now.getDay()].temperature.humidity
+  }`;
   let selectWind = document.querySelector(".wind");
-  selectWind.innerHTML = `${response.data.daily[0].wind.speed}`;
+  selectWind.innerHTML = `${response.data.daily[now.getDay()].wind.speed}`;
 }
 function search(city) {
   let apiKey = "90c47000f520956f67b7e0t1do4a3be3";
@@ -49,3 +53,4 @@ if (now.getMinutes() < 10) {
 } else {
   selectMinute.innerHTML = `${now.getMinutes()}`;
 }
+console.log(response.data.daily[now.getDay()].temperature.day);
