@@ -44,8 +44,9 @@ header {
   color: rgba(0, 0, 0, 0.5);
   margin-top: 0;
 }
-.Humidity,
-.wind {
+.humidity,
+.wind,
+.percent {
   color: #f65282;
   font-weight: bold;
 }
