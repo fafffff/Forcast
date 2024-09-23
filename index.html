@@ -4,40 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forcast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header>
-      <form>
-        <input
-          type="text"
-          placeholder="Enter a city..."
-          autofocus="on"
-          required
-        />
-        <input type="submit" value="search" />
-      </form>
-    </header>
-    <main>
-      <div>
-        <h1>Paris</h1>
-        <p>
-          Tuesday 14:10 scatterd clouds<br />
-          Humidity:66% and wind:3.13km/h
-        </p>
-      </div>
-      <div>🌤24°C</div>
-    </main>
-    <footer>
-      Built by
-      <a href="https://github.com/fafffff" target="_blank">Fasika Belayneh</a>
-      open source on
-      <a href="https://github.com/fafffff/Forcast" target="_blank">GitHub</a>
-      and website hosted on
-      <a
-        href="https://main--shecodes-weather-forcast-app.netlify.app/"
-        target="_blank"
-        >Netlify.</a
-      >
-    </footer>
+    <div class="weather-app">
+      <header>
+        <form>
+          <input
+            type="text"
+            placeholder="Enter a city..."
+            autofocus="on"
+            required
+          />
+          <input type="submit" value="search" />
+        </form>
+      </header>
+      <main>
+        <div>
+          <h1>Paris</h1>
+          <p>
+            Tuesday 14:10 scatterd clouds<br />
+            Humidity:66% and wind:3.13km/h
+          </p>
+        </div>
+        <div>🌤24°C</div>
+      </main>
+      <footer>
+        Built by
+        <a href="https://github.com/fafffff" target="_blank">Fasika Belayneh</a>
+        open source on
+        <a href="https://github.com/fafffff/Forcast" target="_blank">GitHub</a>
+        and website hosted on
+        <a
+          href="https://main--shecodes-weather-forcast-app.netlify.app/"
+          target="_blank"
+          >Netlify.</a
+        >
+      </footer>
+    </div>
   </body>
 </html>
