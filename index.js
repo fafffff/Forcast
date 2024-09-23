@@ -28,12 +28,12 @@ function search(city) {
   console.log(apiURL);
 }
 let form = document.querySelector(".search-form");
-function show(event, response) {
+function show(event) {
   event.preventDefault();
   let input = document.querySelector("#search-form-input");
   let inputCity = document.querySelector("#cities");
   inputCity.innerHTML = `${input.value}`;
-  search(response.data.city);
+  search(input.value);
 }
 form.addEventListener("submit", show);
 let now = new Date();
