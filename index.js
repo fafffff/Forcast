@@ -1,5 +1,9 @@
 function weather(response) {
   let input = document.querySelector("#search-form-input");
+  if (!response.data || !response.data.city) {
+    alert(`Sorry, the city "${input.value}" is not found. Please try again.`);
+    return;
+  }
   if (!response.data.city.toLowerCase().includes(input.value.toLowerCase())) {
     if (
       confirm(
@@ -12,6 +16,8 @@ function weather(response) {
       );
     }
   }
+  let inputCity = document.querySelector("#cities");
+  inputCity.innerHTML = `${response.data.city}`;
   let info = Math.round(response.data.daily[now.getDay()].temperature.day);
   let detail = document.querySelector(".amount");
   detail.innerHTML = `${info}`;
@@ -30,6 +36,7 @@ function weather(response) {
     response.data.daily[now.getDay()].condition.icon_url
   }"alt="weather-image" class="icon"/>`;
   console.log(`${response.data.daily[now.getDay()].condition.icon_url}`);
+  forcastAPI(response.data.city);
 }
 
 function search(city) {
@@ -43,8 +50,7 @@ let form = document.querySelector(".search-form");
 function show(event) {
   event.preventDefault();
   let input = document.querySelector("#search-form-input");
-  let inputCity = document.querySelector("#cities");
-  inputCity.innerHTML = `${input.value}`;
+
   search(input.value.toLowerCase());
 }
 form.addEventListener("submit", show);
@@ -70,18 +76,21 @@ if (now.getMinutes() < 10) {
 } else {
   selectMinute.innerHTML = `${now.getMinutes()}`;
 }
-function displayWeather() {
+function displayWeather(response) {
   let day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let dailyForecast = "";
   day.forEach(function (index) {
+    //let selectHigher = Math.round(
+    //response.data.daily[now.getDay()].temperature.maximum
+    // );
     dailyForecast =
       dailyForecast +
       `<div class="weather-forcast-mon">
             <div class="Mon">${index}</div>
             <div class="Mon-icon">⛅️</div>
             <div class="Mon-temp">
-              <div class="Mon-higher-temp"><b>15°</b></div>
+              <div class="Mon-higher-temp"><b>16°</b></div>
               <div class="Mon-lower-temp">16°</div>
             </div>
           </div>`;
@@ -89,4 +98,13 @@ function displayWeather() {
   let weatherForecast = document.querySelector(".weather-forecast");
   weatherForecast.innerHTML = dailyForecast;
 }
+
+function forcastAPI(city) {
+  let apiKey = "90c47000f520956f67b7e0t1do4a3be3";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(displayWeather);
+  console.log(apiURL);
+}
+
 displayWeather();
