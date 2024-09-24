@@ -79,6 +79,53 @@ header {
   font-weight: bold;
   line-height: 35px;
 }
+.weather-forecast {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.Mon,
+.Tue,
+.Wed,
+.Thu,
+.Fri {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.Mon-temp,
+.Tue-temp,
+.Wed-temp,
+.Thu-temp,
+.Fri-temp {
+  color: rgba(246, 82, 130, 0.8);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+.Mon-higher-temp,
+.Tue-higher-temp,
+.Wed-higher-temp,
+.Thu-higher-temp,
+.Fri-higher-temp {
+  padding: 0 15px;
+}
+.Mon-icon,
+.Thu-icon,
+.Tue-icon,
+.Wed-icon,
+.Fri-icon {
+  font-size: 40px;
+  text-align: center;
+}
 footer {
   border-top: 2px solid #e0dcec;
   padding: 20px 0px 0px 0px;
